@@ -1,4 +1,4 @@
-# event_x
+# EventX
 
 EventX is a company that organizes/popularizes different kind of events.
                     we can organize event at one of our venues - Rent a venue by calling
