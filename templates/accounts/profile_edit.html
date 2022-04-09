@@ -25,12 +25,6 @@
             <label>Email</label>
         </div>
 
-        <div class="user-box">
-            {{ form.date_of_birth }}
-            <label>Date of Birth</label>
-        </div>
-
-
         {% csrf_token %}
             <a href="{% url 'edit profile' profile.pk %}">
       <span></span>

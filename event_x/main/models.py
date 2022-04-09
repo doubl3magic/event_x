@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-from event_x.common.validators import MaxFileSizeInMbValidator
 
 UserModel = get_user_model()
 

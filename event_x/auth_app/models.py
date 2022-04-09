@@ -3,7 +3,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 
 from event_x.auth_app.managers import EventXUserManager
-from event_x.common.validators import validate_only_letters, MaxFileSizeInMbValidator
+from event_x.common.validators import validate_only_letters
 
 
 class EventXUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):

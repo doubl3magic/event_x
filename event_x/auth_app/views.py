@@ -45,7 +45,7 @@ class EditUserProfileView(LoginRequiredMixin, views.UpdateView):
     fields = ('first_name', 'last_name', 'picture', 'email')
     template_name = 'accounts/profile_edit.html'
     success_url = reverse_lazy('home page')
-    # TODO: TRY THIS THING
+
 
 
 class ChangeUserPasswordView(LoginRequiredMixin , auth_views.PasswordChangeView):

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views import generic as views
 
 # TODO: REDIRECT
@@ -33,3 +33,7 @@ class AboutView(views.TemplateView):
 
 class ContactUsView(views.TemplateView):
     template_name = 'main/contact-us.html'
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)
