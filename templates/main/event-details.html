@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <!-- ***** About Us Page ***** -->
+    <div class="page-heading-rent-venue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>{{ event.title }}</h2>
+                    <span>DETAILS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        <div class="col-lg-12">
+                            <div class="event-item">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="left-content">
+                                            <div class="thumb">
+                                            <img src="{{ event.picture.url }}" alt="event image">
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2>DESCRIPTION</h2>
+                                            <p>{{ event.description }}</p>
+                                        </div>
+                                    <div class="col-lg-4">
+                                        <div class="right-content">
+                                            <li>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <h6>{{ event.date_of_event }}<br>
+                                                    </h6>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>{{ event.location }}</span>
+                                                </li>
+                                                <li>
+                                                <div class="main-dark-button"><a
+                                                    href="{% url 'event details' event.pk %}">Tickets</a>
+                                                </div>
+                                                </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+{% endblock %}

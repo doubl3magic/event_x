@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_content %}
+
+
+    <div class="shows-events-tabs">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="row" id="tabs">
+    <div class="col-lg-12">
+    <div class="heading-tabs">
+    <div class="row">
+    <div class="col-lg-8">
+    </div>
+    <div class="col-lg-12">
+    <section class='tabs-content'>
+    <article id='tabs-1'>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <li>
+                        <button onclick="location.href='{% url 'create moment' %}'" type="button">Share a moment</button>
+                    </li>
+
+                    {% for moment in momentphoto_list %}
+                        <div class="col-lg-12">
+                            <div class="event-item">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="left-content">
+                                            <h4>{{ moment.title }}</h4>
+                                            <span style=" display:inline-block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 13ch;">{{ moment.description }}</span>
+                                            {% comment %}<div class="main-dark-button"><a
+                                                    href="{% url 'moment details' moment.pk %}">Discover More</a>
+                                            </div>{% endcomment %}
+                                            {% comment %}<button> Button
+                                            </button>{% endcomment %}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="thumb">
+                                            <img src="{{ moment.photo.url }}" alt="event image">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="right-content">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <h6>{{ moment.event.date_of_event }}<br>
+                                                    </h6>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>{{ moment.event.location }}</span>
+                                                </li>
+                                                <li>
+                                                    <button onclick="location.href='{% url 'moment details' moment.pk %}'" type="button">
+                                                                        Look It Up</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </article>
+    </section>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+                    <div class="col-lg-12">
+                        <div class="pagination">
+                            <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; FIRST</a>
+            <a href="?page={{ page_obj.previous_page_number }}">PREVIOUS</a>
+
+        {% endif %}
+
+                                <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">NEXT</a>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}">LAST &raquo;</a>
+                                {% endif %}
+    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

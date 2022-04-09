@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet"  type="text/css" href="{% static 'css/eventx-forms.css' %}">
+<div class="login-box">
+    {% if user.id == profile.user.id %}
+    <h2>Edit Profile</h2>
+    <form action="{% url 'edit profile' profile.pk %}" method="post" enctype="multipart/form-data">
+        <div class="user-box">
+            {{ form.first_name }}
+            <label>First Name</label>
+        </div>
+
+        <div class="user-box">
+            {{ form.last_name }}
+            <label>Last Name</label>
+        </div>
+
+        <div class="user-box">
+            <h7 style="color: white;">Picture</h7>
+            {{ form.picture }}
+
+        </div>
+
+        <div class="user-box">
+            {{ form.email }}
+            <label>Email</label>
+        </div>
+
+        <div class="user-box">
+            {{ form.date_of_birth }}
+            <label>Date of Birth</label>
+        </div>
+
+
+        {% csrf_token %}
+            <a href="{% url 'edit profile' profile.pk %}">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+        <p>
+            <input type="submit" value="Edit My Account" id="submit">
+        </p>
+            </a>
+    </form>
+        {% else %}
+        <h2>Ooopss.. Wrong profile</h2>
+    {% endif %}
+
+</div>

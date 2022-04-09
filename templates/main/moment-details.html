@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <!-- ***** About Us Page ***** -->
+    <div class="page-heading-rent-venue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>{{ momentphoto.title }}</h2>
+                    <span>SHARED MOMENT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        <div class="col-lg-12">
+                            <div class="event-item">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="left-content">
+                                            <div class="thumb">
+                                            <img src="{{ momentphoto.photo.url }}" alt="event image">
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2>EXPERIENCE DESCRIPTION</h2>
+                                            <p>{{ momentphoto.description }}</p>
+                                        </div>
+                                    <div class="col-lg-4">
+                                        <div class="right-content">
+                                            <li>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <h6>{{ momentphoto.event.date_of_event }}<br>
+                                                    </h6>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>{{ momentphoto.event.title }} - {{ momentphoto.event.location }}</span>
+                                                </li>
+                                                <li>
+                                                {% if is_owner %}
+                                                    <div class="main-dark-button"><a
+                                                        href="{% url 'delete moment' momentphoto.pk %}">Delete</a>
+                                                    </div>
+                                                {% endif %}
+                                                </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+{% endblock %}

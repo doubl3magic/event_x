@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+{% block extrastyle %}
+  <link rel='stylesheet' href='{% static 'css/admin.css' %}'>
+{% endblock %}
+<h1>
+<a href="{% url 'home page' %}" class="logo">Event<em>X</em></a>
+Admin
+    </h1>
+{% endblock %}
