@@ -14,20 +14,20 @@ class ManagerTests(django_test.TestCase):
     def test_create_superuser__expect_to_set_successful(self):
         manager = UserModel.objects
 
-        with self.assertRaises(ValueError) as username_error:
-            manager.create_superuser(username='',
-                                    password=self.VALID_USER_DATA['password'])
-
-        self.assertEqual('The given username must be set', username_error.exception.args[0])
-
-    def test_create_superuser__without_username__expect_to_raise(self):
-        manager = UserModel.objects
-
-        user = manager.create_superuser(username='',
+        user = manager.create_superuser(username=self.VALID_USER_DATA['username'],
                                         password=self.VALID_USER_DATA['password'])
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
+
+    def test_create_superuser__without_username__expect_to_raise(self):
+        manager = UserModel.objects
+
+        with self.assertRaises(ValueError) as username_error:
+            manager.create_superuser(username='',
+                                     password=self.VALID_USER_DATA['password'])
+
+        self.assertEqual('The given username must be set', username_error.exception.args[0])
 
     def test_create_superuser__expect_value_Error(self):
         manager = UserModel.objects

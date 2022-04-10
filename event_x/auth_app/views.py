@@ -1,4 +1,4 @@
-from django.contrib.auth import views as auth_views, logout
+from django.contrib.auth import views as auth_views, logout, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic as views
 from django.shortcuts import render, redirect
@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from event_x.auth_app.forms import CreateProfileForm
 from event_x.auth_app.models import Profile
 
+UserModel = get_user_model
 
 class UserRegisterView(views.CreateView):
     form_class = CreateProfileForm
@@ -47,10 +48,11 @@ class EditUserProfileView(LoginRequiredMixin, views.UpdateView):
     success_url = reverse_lazy('home page')
 
 
-
-class ChangeUserPasswordView(LoginRequiredMixin , auth_views.PasswordChangeView):
+class ChangeUserPasswordView(LoginRequiredMixin, auth_views.PasswordChangeView):
+    model = UserModel
     template_name = 'accounts/password_change.html'
     success_url = reverse_lazy('home page')
+
 
 
 def user_log_out(request):
