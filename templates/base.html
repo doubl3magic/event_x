@@ -67,7 +67,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="{% url 'home page' %}" class="active">Home</a></li>
+                            <li><a href="{% url 'home page' %}" {% comment %}class="active"{% endcomment %}>Home</a></li>
                             <li><a href="{% url 'about page' %}">About Us</a></li>
                             <li><a href="{% url 'event list' %}">Shows & Events</a></li>
                             {% if request.user.is_authenticated %}

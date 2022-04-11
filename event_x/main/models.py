@@ -34,6 +34,8 @@ class Event(models.Model):
         max_length=LOCATION_MAX_LENGTH,
     )
 
+    ticket_url = models.URLField()
+
     date_of_event = models.DateTimeField()
 
     date_added = models.DateTimeField(

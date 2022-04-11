@@ -5,7 +5,7 @@ from django.views import generic as views
 from event_x.main.models import Event, Venue
 
 events = Event.objects.all()
-just_added_events = events.reverse()[3:]
+just_added_events = events.reverse()[:3]
 
 venues = Venue.objects.all()
 
