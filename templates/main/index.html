@@ -25,7 +25,7 @@
 
 
 
-    <!-- *** Amazing Venus ***-->
+    <!-- *** About Us ***-->
     <div class="amazing-venues">
         <div class="container">
             <div class="row">
@@ -35,7 +35,7 @@
                         <p>EventX announces, popularizes and organizes events all around the world.
                             Jump in to share a moment, look what other people think etc. <a href="{% url 'register page' %}">Register</a>/<a
                                     href="{% url 'login page' %}">Login</a>,
-                            <a href="shows-events.html">Shows &amp; Events</a>, you can see more in  <a
+                            <a href="{% url 'event list' %}">Shows &amp; Events</a>, you can see more in  <a
                                     href="{% url 'about page' %}">About Us</a>.
                             <br>
                         <p></p>
@@ -70,7 +70,7 @@
                                 <a href="{% url 'event details' event.pk %}"><img src="{{ event.picture.url }}" alt="event picture"></a>
                             </div>
                             <div class="down-content">
-                                <a href="event-details.html"><h4>{{ event.title }}</h4></a>
+                                <a href="{% url 'event details' event.pk %}"><h4>{{ event.title }}</h4></a>
                                 <ul>
                                     <li><i class="fa fa-clock-o"></i> {{ event.date_of_event }}</li>
                                     <li><i class="fa fa-map-marker"></i> {{ event.location }}</li>
