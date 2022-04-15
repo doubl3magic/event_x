@@ -11,6 +11,7 @@ from event_x.auth_app.models import Profile
 
 UserModel = get_user_model
 
+
 class UserRegisterView(views.CreateView):
     form_class = CreateProfileForm
     template_name = 'accounts/profile_create.html'
@@ -52,7 +53,6 @@ class ChangeUserPasswordView(LoginRequiredMixin, auth_views.PasswordChangeView):
     model = UserModel
     template_name = 'accounts/password_change.html'
     success_url = reverse_lazy('home page')
-
 
 
 def user_log_out(request):

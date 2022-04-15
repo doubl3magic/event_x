@@ -13,9 +13,7 @@ class CreateProfileForm(auth_forms.UserCreationForm):
         max_length=Profile.LAST_NAME_MAX_LEN,
     )
 
-    picture = forms.ImageField(
-        #validators=[MaxFileSizeInMbValidator(6)],
-    )
+    picture = forms.ImageField()
 
     email = forms.EmailField()
 

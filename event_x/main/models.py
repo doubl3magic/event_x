@@ -73,10 +73,7 @@ class MomentPhoto(models.Model):
         max_length=TITLE_MAX_LENGTH,
     )
 
-    photo = models.ImageField(
-        #validators=[MaxFileSizeInMbValidator(10)],
-
-    )
+    photo = models.ImageField()
     description = models.TextField(
         null=True,
         blank=True,

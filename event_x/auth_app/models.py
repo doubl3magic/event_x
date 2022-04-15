@@ -49,9 +49,7 @@ class Profile(models.Model):
         )
     )
 
-    picture = models.ImageField(
-        #validators=[MaxFileSizeInMbValidator(6)],
-    )
+    picture = models.ImageField()
 
     email = models.EmailField(
         null=True,

@@ -29,6 +29,15 @@
                             <li><i class="fa fa-clock-o"></i> {{ momentphoto.event.date_of_event }}</li>
                             <li><i class="fa fa-map-marker"></i>{{ momentphoto.event.location }}</li>
                         </ul>
+                        {% if is_owner %}
+                            <div class="quantity-content">
+                                <div class="right-content">
+                                    <div class="total">
+                                <div class="main-dark-button"><a href="{% url 'delete moment' momentphoto.pk %}">Delete Moment</a></div>
+                            </div>
+                                </div>
+                            </div>
+                        {% endif %}
                         <div class="warn">
                             <p>{{ momentphoto.description }}</p>
                         </div>
