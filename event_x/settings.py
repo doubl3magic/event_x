@@ -1,14 +1,20 @@
+import os
+from dotenv import load_dotenv
 from pathlib import Path
+import django_heroku
+import dj_database_url
+from decouple import config
 
 
 from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv()
 
-SECRET_KEY = 'django-insecure-8db3v86ph#8bfbh@-v76++--w2c9+&0%j(tx((envikm6aafj('
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -33,12 +39,14 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EVENT_X_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'event_x.urls'
@@ -66,9 +74,9 @@ WSGI_APPLICATION = 'event_x.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'event_x_db',
-        'USER': 'postgres',
-        'PASSWORD': 'new_password1',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -100,9 +108,10 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    BASE_DIR / 'staticfiles',
-)
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 MEDIA_URL = '/media/'
@@ -113,3 +122,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'auth_app.EventXUser'
 
 LOGIN_URL = reverse_lazy('login page')
+
+django_heroku.settings(locals())
