@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 # TO-D0: URL's
 from django.urls import reverse_lazy
 
-from event_x.auth_app.forms import CreateProfileForm
+from event_x.auth_app.forms import CreateProfileForm, EditProfileForm
 from event_x.auth_app.models import Profile
 
 UserModel = get_user_model
@@ -44,7 +44,7 @@ class UserProfileDetailsView(views.DetailView):
 
 class EditUserProfileView(LoginRequiredMixin, views.UpdateView):
     model = Profile
-    fields = ('first_name', 'last_name', 'picture', 'email')
+    fields = ('picture', 'email')
     template_name = 'accounts/profile_edit.html'
     success_url = reverse_lazy('home page')
 

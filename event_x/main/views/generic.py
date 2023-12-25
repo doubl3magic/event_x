@@ -1,11 +1,13 @@
 from django.shortcuts import redirect, render
+from django.utils import timezone
 from django.views import generic as views
 
 # TODO: REDIRECT
 from event_x.main.models import Event, Venue
 
 events = Event.objects.all()
-just_added_events = events.reverse()[:3]
+now = timezone.now()
+just_added_events = Event.objects.filter(date_of_event__gte=now).order_by('date_of_event')[:3]
 
 venues = Venue.objects.all()
 
