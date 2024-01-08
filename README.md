@@ -6,8 +6,9 @@
     All of your favorite events are in one place!
     <br/>
     <br/>
+    <a href="https://event-x.onrender.com">View Demo</a>
   </p>
-</p>
+
 
 
 
