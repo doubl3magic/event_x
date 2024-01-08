@@ -604,7 +604,7 @@ banner
 */
 
 .main-banner {
-  background-image: url(../images/banner_bg.jpg);
+  background-image: url('../images/banner_bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -1133,7 +1133,7 @@ About Us Page
 */
 
 .page-heading-about {
-  background-image: url(../images/about_bg.jpg);
+  background-image: url('../images/about_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 110px 0px 410px 0px;
@@ -1385,7 +1385,7 @@ Rent Venue Page
 */
 
 .page-heading-rent-venue {
-  background-image: url(../images/rent_venue_bg.jpg);
+  background-image: url('../images/rent_venue_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 110px 0px;
@@ -1565,7 +1565,7 @@ Shows Events Page
 */
 
 .page-heading-shows-events {
-  background-image: url(../images/shows_events_bg.jpg);
+  background-image: url('../images/shows_events_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 110px 0px;

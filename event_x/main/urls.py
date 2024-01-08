@@ -8,7 +8,7 @@ from event_x.main.views.moment_photo import MomentPhotoListView, MomentPhotoDeta
 urlpatterns = (
     path('', HomeView.as_view(), name='home page'),
     path('about/', AboutView.as_view(), name='about page'),
-    path('conacts/', ContactUsView.as_view(), name='contact us'),
+    path('contacts/', ContactUsView.as_view(), name='contact us'),
 
     path('event/<int:pk>/', EventDetailsView.as_view(), name='event details'),
     path('events/', EventListView.as_view(), name='event list'),
